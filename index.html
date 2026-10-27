@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assignment 5 — Interactive Lab</title><link rel="stylesheet" href="styles.css">
+<script src="js/task1.js" defer></script><script src="js/task2.js" defer></script><script src="js/task3.js" defer></script>
+</head><body>
+<header class="hero"><p class="eyebrow">FRONT-END DEVELOPMENT · ASSIGNMENT 5</p><h1>Interactive Lab</h1><p>Three JavaScript exercises: game logic, data-driven DOM, and live form validation.</p>
+<nav aria-label="Task navigation"><a href="#task1">01 · Code Breaker</a><a href="#task2">02 · Kanban Board</a><a href="#task3">03 · Character Creator</a></nav></header>
+<main>
+<section id="task1" class="panel"><div class="section-head"><span class="number">01</span><div><p class="eyebrow">TASK 1 · VARIABLES & CONDITIONS</p><h2>Code Breaker</h2><p>Find the secret four-digit code. Digits do not repeat; you have eight attempts.</p></div></div>
+<div class="game-layout"><div class="card"><div class="stat-row"><div><span class="muted">Attempts left</span><strong id="attemptsLeft">8</strong></div><div><span class="muted">Round</span><strong id="roundState">In progress</strong></div></div>
+<form id="guessForm"><label for="guessInput">Your 4-digit guess</label><input id="guessInput" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="e.g. 4821" aria-describedby="guessHelp"><small id="guessHelp">Use four different digits (leading zero is allowed).</small><button type="submit">Check code</button></form><p id="gameMessage" class="message" aria-live="polite">Enter a guess to begin.</p><button id="restartGame" class="secondary" type="button">New game</button></div><div class="card"><h3>Guess history</h3><ol id="guessHistory" class="history"><li class="empty">Your guesses will appear here.</li></ol></div></div></section>
+<section id="task2" class="panel"><div class="section-head"><span class="number">02</span><div><p class="eyebrow">TASK 2 · ARRAYS, LOOPS & DOM</p><h2>Kanban Board</h2><p>Move task cards between columns, filter by tag, and track completion.</p></div></div>
+<div class="toolbar"><label>Filter by tag <select id="tagFilter"><option value="all">All tags</option><option value="design">Design</option><option value="code">Code</option><option value="content">Content</option><option value="test">Testing</option></select></label><label>Sort <select id="prioritySort"><option value="default">Default order</option><option value="high">Priority: high first</option></select></label></div>
+<div class="progress-wrap"><div class="progress-label"><span>Completion</span><strong id="progressText">0%</strong></div><div class="progress-track" role="progressbar" aria-label="Completed tasks" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div></div>
+<p id="boardMessage" class="message" aria-live="polite"></p><div id="board" class="board" aria-label="Kanban task board"></div></section>
+<section id="task3" class="panel"><div class="section-head"><span class="number">03</span><div><p class="eyebrow">TASK 3 · EVENTS & VALIDATION</p><h2>Character Creator</h2><p>Build a character with exactly 20 skill points. The preview updates as you type.</p></div></div>
+<div class="creator-layout"><form id="characterForm" novalidate><div id="formErrorSummary" class="error-summary" tabindex="-1" hidden></div>
+<div class="field"><label for="charName">Character name</label><input id="charName" name="charName" required minlength="3" maxlength="16" placeholder="e.g. Nova"><small class="field-error" id="charNameError"></small></div>
+<div class="field"><label for="charClass">Class</label><select id="charClass" name="charClass" required><option value="">Choose a class</option><option value="Mage">Mage</option><option value="Warrior">Warrior</option><option value="Ranger">Ranger</option></select><small class="field-error" id="charClassError"></small></div>
+<div class="field"><label for="charColor">Card color</label><select id="charColor" name="charColor"><option value="violet">Violet</option><option value="ocean">Ocean</option><option value="ember">Ember</option></select></div>
+<div class="skills">
+<div class="field"><label for="strength">Strength (1–10)</label><input type="number" id="strength" min="1" max="10" value="5"><small class="field-error" id="strengthError"></small></div>
+<div class="field"><label for="magic">Magic (1–10)</label><input type="number" id="magic" min="1" max="10" value="5"><small class="field-error" id="magicError"></small></div>
+<div class="field"><label for="agility">Agility (1–10)</label><input type="number" id="agility" min="1" max="10" value="5"><small class="field-error" id="agilityError"></small></div>
+<div class="field"><label for="wisdom">Wisdom (1–10)</label><input type="number" id="wisdom" min="1" max="10" value="5"><small class="field-error" id="wisdomError"></small></div>
+</div><p id="pointsCounter" class="points-counter">20 / 20 points allocated</p><button type="submit">Create character</button><button type="reset" class="secondary">Reset</button></form>
+<aside class="preview-card violet" id="characterPreview"><p class="eyebrow">LIVE PREVIEW</p><div class="avatar" aria-hidden="true">✦</div><h3 id="previewName">Your hero</h3><p id="previewClass">Choose a class</p><div class="skill-list" id="previewSkills"></div><p id="previewStatus" class="message" aria-live="polite">Complete the form to create your character.</p><div id="finalCharacter" hidden></div></aside></div>
+</section>
+</main><footer><span>Interactive Lab</span><span>Built with vanilla JavaScript · No libraries</span></footer></body></html>
